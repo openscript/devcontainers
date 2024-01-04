@@ -13,6 +13,7 @@ const scriptSHA = {};
 const assetsPath = path.join(__dirname, '..', 'assets');
 const stubPromises = {
     alpine: asyncUtils.readFile(path.join(assetsPath, 'alpine.Dockerfile')),
+    arch: asyncUtils.readFile(path.join(assetsPath, 'arch.Dockerfile')),
     debian: asyncUtils.readFile(path.join(assetsPath, 'debian.Dockerfile')),
     redhat: asyncUtils.readFile(path.join(assetsPath, 'redhat.Dockerfile'))
 }
@@ -31,7 +32,7 @@ async function prepDockerFile(devContainerDockerfilePath, definitionId, repo, re
     // Use exact version of building, MAJOR if not
     const version = isForBuild ? configUtils.getVersionFromRelease(release, definitionId) : configUtils.majorFromRelease(release, definitionId);
 
-    // Create initial result object 
+    // Create initial result object
     const prepResult = {
         shouldFlattenBaseImage: false,
         baseImage: null,
