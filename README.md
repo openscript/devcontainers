@@ -1,8 +1,13 @@
-# Devcontainers `base-arch`
+# Devcontainers
 
-This is inspired by https://github.com/devcontainers/images/tree/main/src/base-alpine.
+Additionally to https://github.com/devcontainers/images, this repository offers:
+
+- base-archlinux
 
 ## Usage
 
 ## Examples
 
+## Credits
+
+This is inspired by https://github.com/devcontainers.

@@ -1,0 +1,34 @@
+{
+	"version": "0.207.1",
+	"variants": [
+		"base-devel-20240101.0.204074",
+		"base-20240101.0.204074",
+		"multilib-devel-20240101.0.204074"
+	],
+	"build": {
+		"latest": false,
+		"rootDistro": "archlinux",
+		"architectures": [
+			"linux/amd64"
+		],
+		"tags": [
+			"base:${VERSION}-archlinux-${VARIANT}",
+			"base:${VERSION}-archlinux${VARIANT}"
+		],
+		"variantTags": {
+			"base-20240101.0.204074": [
+				"base:${VERSION}-archlinux"
+			]
+		}
+	},
+	"dependencies": {
+		"image": "archlinux:${VARIANT}",
+		"imageLink": "https://hub.docker.com/_/archlinux",
+		"git": {
+			"Oh My Zsh!": "/home/vscode/.oh-my-zsh"
+		},
+		"other": {
+			"git": {}
+		}
+	}
+}
