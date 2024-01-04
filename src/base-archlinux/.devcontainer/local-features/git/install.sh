@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pacman -S git
+pacman -Sy --noconfirm git

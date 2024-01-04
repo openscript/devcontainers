@@ -12,6 +12,10 @@ jobs:
       packages: write
       contents: read
     steps:
+      - name: Get tag name
+        id: get_tag_name
+        run: echo "::set-output name=tag::$(echo "${{ github.ref }}" | grep -oP 'refs/tags/\K(.+)')"
+
       - name: Check out the repo
         uses: actions/checkout@v4
 
@@ -22,10 +26,11 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          tags: ghcr.io/openscript/vscode-dev-container-tectonic:latest
-          cache-from: type=registry,ref=ghcr.io/openscript/vscode-dev-container-tectonic:latest
-          cache-to: type=inline
+      - name: Build and push
+        run: |
+          npm install -g @devcontainers/cli
+          npm install
+          build/vscdc push --release ${{ steps.get_tag_name.outputs.tag }} \
+                           --github-repo ${{ github.repository }} \
+                           --registry "ghcr.io" \
+                           --registry-path ${{ github.repository_owner }}

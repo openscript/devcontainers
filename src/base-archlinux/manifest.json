@@ -1,8 +1,8 @@
 {
 	"version": "0.207.1",
 	"variants": [
-		"base-devel-20240101.0.204074",
 		"base-20240101.0.204074",
+		"base-devel-20240101.0.204074",
 		"multilib-devel-20240101.0.204074"
 	],
 	"build": {
@@ -12,12 +12,12 @@
 			"linux/amd64"
 		],
 		"tags": [
-			"base:${VERSION}-archlinux-${VARIANT}",
-			"base:${VERSION}-archlinux${VARIANT}"
+			"devcontainers:${VERSION}-archlinux-${VARIANT}",
+			"devcontainers:${VERSION}-archlinux${VARIANT}"
 		],
 		"variantTags": {
 			"base-20240101.0.204074": [
-				"base:${VERSION}-archlinux"
+				"devcontainers:${VERSION}-archlinux"
 			]
 		}
 	},
