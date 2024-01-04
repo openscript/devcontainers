@@ -7,7 +7,7 @@
 	],
 	"build": {
 		"latest": false,
-		"rootDistro": "archlinux",
+		"rootDistro": "arch",
 		"architectures": [
 			"linux/amd64"
 		],
