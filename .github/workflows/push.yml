@@ -1,11 +1,12 @@
-name: Release new application image
+name: Build and push images
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+    - 'v*'
 jobs:
-  push_to_registry:
-    name: Push Docker image to GitHub Packages
+  build-and-push:
+    name: Build and push images
     runs-on: ubuntu-latest
     permissions:
       packages: write
