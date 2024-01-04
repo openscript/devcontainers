@@ -113,10 +113,10 @@ async function pushImage(definitionId, variant, repo, release, updateLatest,
         const imageName = imageNamesWithVersionTags[0].split(':')[0];
 
         // Dual publish image to devcontainers and vscode/devcontainers
-        const secondaryImageNamesWithVersionTags = configUtils.getTagList(definitionId, release, updateLatest, registry, secondaryRegistryPath, variant);
+        // const secondaryImageNamesWithVersionTags = configUtils.getTagList(definitionId, release, updateLatest, registry, secondaryRegistryPath, variant);
 
         console.log(`(*) Tags:${imageNamesWithVersionTags.reduce((prev, current) => prev += `\n     ${current}`, '')}`);
-        console.log(`(*) Secondary Tags:${secondaryImageNamesWithVersionTags.reduce((prev, current) => prev += `\n     ${current}`, '')}`);
+        // console.log(`(*) Secondary Tags:${secondaryImageNamesWithVersionTags.reduce((prev, current) => prev += `\n     ${current}`, '')}`);
 
         const buildSettings = configUtils.getBuildSettings(definitionId);
 
@@ -159,8 +159,8 @@ async function pushImage(definitionId, variant, repo, release, updateLatest,
             const workingDir = path.resolve(dotDevContainerPath, context);
             let imageNameParams = imageNamesWithVersionTags.reduce((prev, current) => prev.concat(['--image-name', current]), []);
 
-            const secondaryImageNameParams = secondaryImageNamesWithVersionTags.reduce((prev, current) => prev.concat(['--image-name', current]), []);
-            imageNameParams = imageNameParams.concat(secondaryImageNameParams);
+            //const secondaryImageNameParams = secondaryImageNamesWithVersionTags.reduce((prev, current) => prev.concat(['--image-name', current]), []);
+            //imageNameParams = imageNameParams.concat(secondaryImageNameParams);
 
             const spawnOpts = { stdio: 'inherit', cwd: workingDir, shell: true };
             await asyncUtils.spawn('devcontainer', [
